@@ -1,11 +1,11 @@
-Package: thesisdown
-Title: An updated R Markdown thesis template using the bookdown package
-Version: 0.0.2
-Authors@R: person("Chester", "Ismay", email = "chester.ismay@gmail.com", role = c("aut", "cre"))
-Description: Using the bookdown package and LaTeX and Word thesis templates from
-    Reed College, this package aims to encourage reproducible research using
-    simple Markdown syntax while embedding all of the R code to produce plots
-    and analyses as well.
+Package: unswthesisdown
+Title: A fork of ismayc/thesisdown for creating UNSW theses using RMarkdown and the bookdown package.
+Version: 0.0.3
+Authors@R: person("James", "Goldie", email = "me@rensa.co", role = c("aut"))
+Description:
+    Chester Imay's thesisdown package used the bookdown package and LaTeX and Word thesis templates from Reed College to produce theses. This package
+    modifies the LaTeX template to produce theses that conform to UNSW Sydney's
+    PhD thesis guidelines.
 Depends:
     R (>= 3.2.0),
     devtools,
@@ -16,4 +16,4 @@ Depends:
 License: MIT
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 5.0.1
+RoxygenNote: 5.0.2

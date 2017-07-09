@@ -1,3 +1,19 @@
+# unswthesisdown
+
+This is a fork of [ismayc/thesisdown](https://github.com/ismayc/thesisdown) designed to produce theses for UNSW students. Write your thesis in RMarkdown! Installation is mostly as the original `thesisdown` package, described below, but for the modified repo and package name:
+
+```S
+install.packages("devtools")
+devtools::install_github("rstudio/bookdown")
+devtools::install_github("rensa/unswthesisdown")
+```
+
+In RStudio (step 3 below), the template will appear as 'UNSW Thesis'. Once you've created a new RMarkdown document in R or RStudio using the blow instructions, all you need to do it replace the .Rmd files with your own. You should also modify the YAML (metadata) at the top of index.Rmd to fill in details like your name and school, as well as some of the preliminary matter. You can also use this to switch between PDF and HTML output.
+
+Note that Word and EPUB output are available, but neither have been modified for UNSW: the Word template is from Reed College (so don't submit it!) and the EPUB is, I think, based on the bookdown default (so not great). Stick to Gitbook while you write and switch to PDF as you get toward submission.
+
+If you have any UNSW-specific feedback, add an issue, send me a PR or [get in touch](twitter.com/rensa_co) :)
+
 # thesisdown
 
 This project was inspired by the [bookdown](http://github.com/rstudio/bookdown) package and is an updated version of my Senior Thesis template in the `reedtemplates` package [here](http://github.com/ismayc/reedtemplates).
