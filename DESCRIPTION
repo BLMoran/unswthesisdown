@@ -1,7 +1,7 @@
 Package: unswthesisdown
 Title: A fork of ismayc/thesisdown for creating UNSW theses using RMarkdown and the bookdown package.
 Version: 0.0.3
-Authors@R: person("James", "Goldie", email = "me@rensa.co", role = c("aut"))
+Authors@R: person("James", "Goldie", email = "me@rensa.co", role = c("aut", "cre"))
 Description:
     Chester Imay's thesisdown package used the bookdown package and LaTeX and Word thesis templates from Reed College to produce theses. This package
     modifies the LaTeX template to produce theses that conform to UNSW Sydney's
@@ -16,4 +16,4 @@ Depends:
 License: MIT
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 5.0.2
+RoxygenNote: 6.0.1
