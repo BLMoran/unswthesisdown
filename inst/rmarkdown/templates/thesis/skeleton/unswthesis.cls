@@ -182,43 +182,26 @@
 \addtolength\topmargin{-\headheight}
 \addtolength\topmargin{-\headsep}
 
-% text height: 297 mm - 30mm (top) - 20 mm (bottom) - 
-
-%\setlength{\oddsidemargin}{.6in}
-%\setlength{\evensidemargin}{0in}
-%\setlength{\textwidth}{5.9in}
-%\setlength\topmargin{0in}
-%\addtolength\headheight{2.5pt}
-%\addtolength\topmargin{-\headheight}
-%\addtolength\topmargin{-\headsep}
-%\addtolength\textheight{1in}
-%\addtolength\textheight{\headheight}
-%\addtolength\textheight{\headsep}
-
 \def\degree#1{\gdef \@degree{#1}}
 \def\@degree{\@latex@warning@no@line{No \noexpand\degree given}}
 \def\institution#1{\gdef \@institution{#1}}
 \def\@institution{\@latex@warning@no@line{No \noexpand\institution given}}
-\def\location#1{\gdef \@location{#1}}
-\def\@location{\@latex@warning@no@line{No \noexpand\location given}}
 \def\division#1{\gdef \@division{#1}}
 \def\@division{\@latex@warning@no@line{No \noexpand\division given}}
 \def\theschoolof#1{\gdef \@theschoolof{#1}}
 \def\@theschoolof{The School of}
 \def\school#1{\gdef \@school{#1}}
 \def\@school{\@latex@warning@no@line{No \noexpand\school given}}
-\def\department#1{\gdef \@department{#1}}
-\def\@department{\@latex@warning@no@line{No \noexpand\department given}}
+\def\thefacultyof#1{\gdef \@thefacultyof{#1}}
+\def\@thefacultyof{Faculty of}
+\def\faculty#1{\gdef \@faculty{#1}}
+\def\@faculty{\@latex@warning@no@line{No \noexpand\faculty given}}
 \def\logo#1{\gdef \@logo{#1}}
 \def\@logo{\@latex@warning@no@line{No \noexpand\logo given}}
 \def\approvedforthe#1{\gdef \@approvedforthe{#1}}
 \def\@approvedforthe{Division}
 \def\supervisors#1{\gdef \@supervisors{#1}}
 \def\@supervisors{\@latex@warning@no@line{No \noexpand\supervisors given}}
-% \def\altadvisor#1{\gdef \@altadvisor{#1} \@altadvisortrue}
-% \global\let\@altadvisor\@empty
-% \newif\if@altadvisor
-% \@altadvisorfalse
 
 \renewcommand\l@chapter[2]{%
   \ifnum \c@tocdepth >\m@ne
@@ -309,39 +292,39 @@
     \null\vfil
     {\fontsize{28}{32}\selectfont \bf{\@title}}
 
-    \vfil
-    \vfil
+    \vspace*{1\baselineskip}
 
     {\fontsize{12}{14}\selectfont \lineskip .75em
     \begin{tabular}[t]{c}
       \bf{\@author}
     \end{tabular}\par}
 
+    \vspace*{1\baselineskip}
+
     A dissertation submitted in fulfilment \\
     of the requirements for the degree of \\
     \bf{\@degree}
 
-    \vfil
+    \vspace*{1\baselineskip}
 
     % logo goes here
     \includegraphics[width=4cm]{\@logo}
 
-    \vfil
+    \vspace*{1\baselineskip}
 
     Supervised by \@supervisors
 
-    \vfil
+    \vspace*{1\baselineskip}
     
     \bf{
       \@division \\
       \@theschoolof \ \@school \\
+      \@thefacultyof \ \@faculty \\
       \@institution \\
-      \@location \\
     }
     
-    \vfil
+    \vspace*{1\baselineskip}
     
-    \vskip 1.5em
     {\fontsize{12}{14}\selectfont \@date \par}
   \end{center}\par
   \end{titlepage}
