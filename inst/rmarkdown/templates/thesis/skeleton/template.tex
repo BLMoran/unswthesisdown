@@ -24,7 +24,7 @@
 %% Preamble
 %%
 % \documentclass{<something>} must begin each LaTeX document
-\documentclass[12pt,twoside]{reedthesis}
+\documentclass[12pt, twoside, a4paper]{unswthesis}
 % Packages are extensions to the basic LaTeX functions. Whatever you
 % want to typeset, there is probably a package out there for it.
 % Chemistry (chemtex), screenplays, you name it.
@@ -37,12 +37,14 @@
 \usepackage{chemarr} %% Useful for one reaction arrow, useless if you're not a chem major
 \usepackage[hyphens]{url}
 % Added by CII
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{lmodern}
 \usepackage{float}
 \floatplacement{figure}{H}
 % End of CII addition
 \usepackage{rotating}
+\usepackage{pdfpages}
+\usepackage[]{geometry}
 
 % Next line commented out by CII
 %%% \usepackage{natbib}
@@ -72,17 +74,15 @@
 % To pass between YAML and LaTeX the dollar signs are added by CII
 \title{$title$}
 \author{$author$}
-% The month and year that you submit your FINAL draft TO THE LIBRARY (May or December)
+\supervisors{$supervisors$}
 \date{$date$}
 \division{$division$}
-\advisor{$advisor$}
+\school{$school$}
 \institution{$institution$}
+\location{$location$}
+\logo{$logo$}
 \degree{$degree$}
-%If you have two advisors for some reason, you can use the following
-% Uncommented out by CII
-$if(altadvisor)$
-\altadvisor{$altadvisor$}
-$endif$
+
 % End of CII addition
 
 %%% Remember to use the correct department!

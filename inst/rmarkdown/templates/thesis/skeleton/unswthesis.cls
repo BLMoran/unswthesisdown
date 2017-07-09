@@ -24,7 +24,7 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{reedthesis}[2004/01/27 The Reed College Thesis Class]
+\ProvidesClass{unswthesis}[2017/07/09 UNSW Thesis]
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
 \LoadClass{book}
@@ -174,13 +174,15 @@
 \renewcommand{\cleardoublepage}{\RTcleardoublepage}
 
 % adjust margins for binding  (changed 2007-04-24 tgp)
-\setlength{\oddsidemargin}{.5in}
-\setlength{\evensidemargin}{0in}
-\setlength{\textwidth}{6.0in}
-\setlength{\textheight}{9.0in}
-\setlength\topmargin{0in}
+\setlength{\oddsidemargin}{20mm}
+\setlength{\evensidemargin}{40mm}
+\setlength{\textwidth}{150mm}
+% \setlength{\textheight}{9.0in}
+\setlength\topmargin{30mm}
 \addtolength\topmargin{-\headheight}
 \addtolength\topmargin{-\headsep}
+
+% text height: 297 mm - 30mm (top) - 20 mm (bottom) - 
 
 %\setlength{\oddsidemargin}{.6in}
 %\setlength{\evensidemargin}{0in}
@@ -197,20 +199,26 @@
 \def\@degree{\@latex@warning@no@line{No \noexpand\degree given}}
 \def\institution#1{\gdef \@institution{#1}}
 \def\@institution{\@latex@warning@no@line{No \noexpand\institution given}}
+\def\location#1{\gdef \@location{#1}}
+\def\@location{\@latex@warning@no@line{No \noexpand\location given}}
 \def\division#1{\gdef \@division{#1}}
 \def\@division{\@latex@warning@no@line{No \noexpand\division given}}
+\def\theschoolof#1{\gdef \@theschoolof{#1}}
+\def\@theschoolof{The School of}
+\def\school#1{\gdef \@school{#1}}
+\def\@school{\@latex@warning@no@line{No \noexpand\school given}}
 \def\department#1{\gdef \@department{#1}}
 \def\@department{\@latex@warning@no@line{No \noexpand\department given}}
-\def\thedivisionof#1{\gdef \@thedivisionof{#1}}
-\def\@thedivisionof{The Division of}
+\def\logo#1{\gdef \@logo{#1}}
+\def\@logo{\@latex@warning@no@line{No \noexpand\logo given}}
 \def\approvedforthe#1{\gdef \@approvedforthe{#1}}
 \def\@approvedforthe{Division}
-\def\advisor#1{\gdef \@advisor{#1}}
-\def\@advisor{\@latex@warning@no@line{No \noexpand\advisor given}}
-\def\altadvisor#1{\gdef \@altadvisor{#1} \@altadvisortrue}
-\global\let\@altadvisor\@empty
-\newif\if@altadvisor
-\@altadvisorfalse
+\def\supervisors#1{\gdef \@supervisors{#1}}
+\def\@supervisors{\@latex@warning@no@line{No \noexpand\supervisors given}}
+% \def\altadvisor#1{\gdef \@altadvisor{#1} \@altadvisortrue}
+% \global\let\@altadvisor\@empty
+% \newif\if@altadvisor
+% \@altadvisorfalse
 
 \renewcommand\l@chapter[2]{%
   \ifnum \c@tocdepth >\m@ne
@@ -284,8 +292,8 @@
 % I hacked the title page to all be the same font size
 % as requested by the library, BTS 2005
 
-\renewcommand{\maketitle}{%
-  {\pagestyle{empty}
+\renewcommand{\maketitle}{{
+  \pagestyle{empty}
   \fontsize{12}{14}\selectfont
   \begin{titlepage}
   \newpage
@@ -299,49 +307,49 @@
   \begin{center}
     \setcounter{page}{1}
     \null\vfil
-    {\fontsize{12}{14}\selectfont \@title}
+    {\fontsize{28}{32}\selectfont \bf{\@title}}
+
     \vfil
-    \centerline{\hbox to \wd0 {\hbox{}\hrulefill\hbox{}}}
     \vfil
-    A Thesis \\
-    Presented to \\
-    \@thedivisionof \ \@division \\
-    \@institution
-    \vfil
-    \centerline{\hbox to \wd0 {\hbox{}\hrulefill\hbox{}}}
-    \vfil
-    In Partial Fulfillment \\
-    of the Requirements for the Degree \\
-    \@degree
-    \vfil
-    \centerline{\hbox to \wd0 {\hbox{}\hrulefill\hbox{}}}
-    \bigskip
-    \centerline{}
-    \bigskip
+
     {\fontsize{12}{14}\selectfont \lineskip .75em
-    \begin{tabular}[t]{c}%
-      \@author
+    \begin{tabular}[t]{c}
+      \bf{\@author}
     \end{tabular}\par}
+
+    A dissertation submitted in fulfilment \\
+    of the requirements for the degree of \\
+    \bf{\@degree}
+
+    \vfil
+
+    % logo goes here
+    \includegraphics[width=4cm]{\@logo}
+
+    \vfil
+
+    Supervised by \@supervisors
+
+    \vfil
+    
+    \bf{
+      \@division \\
+      \@theschoolof \ \@school \\
+      \@institution \\
+      \@location \\
+    }
+    
+    \vfil
+    
     \vskip 1.5em
     {\fontsize{12}{14}\selectfont \@date \par}
   \end{center}\par
   \end{titlepage}
 
-%% Approved for the division page
-  \cleardoublepage
-  {\fontsize{12}{14}
-  \setbox0=\hbox{Approved for the \@approvedforthe}
-  \thispagestyle{empty}
-  \null\vfil		% just below center of page
-  \par\vskip 6cm	% below center, not center
-  \centerline{\copy0}	% approved
-  \centerline{(\@department)} %major
-  \vskip 1cm		%space to sign
-  \centerline{\makebox[\wd0][c]{\hrulefill}
-	\if@altadvisor \makebox[.5in]{} \makebox[\wd0][c]{\hrulefill} \fi}
-  \centerline{\makebox[\wd0][c]{\@advisor}
-	\if@altadvisor \makebox[.5in]{} \makebox[\wd0][c]{\@altadvisor} \fi}
-  \par\vfil\null}
+  % unsw forms to be included
+  \includepdf[pages=-, offset=0 0]{forms/coversheet.pdf}
+  \includepdf[pages=-, offset=0 0]{forms/originality.pdf}
+  \includepdf[pages=-, offset=0 0]{forms/copyright-authenticity.pdf}
   \cleardoublepage
   }
 }
