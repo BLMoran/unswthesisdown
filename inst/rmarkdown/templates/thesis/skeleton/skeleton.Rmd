@@ -3,8 +3,8 @@ author: 'Your R. Name'
 date: 'May 20xx'
 division: 'Climate Change Research Centre'
 school: 'Biological, Earth & Environmental Sciences'
+faculty: 'Science'
 institution: 'UNSW Sydney'
-location: 'Sydney, Australia'
 supervisors: 'Advisor F. Name'
 degree: 'Doctor of Philosophy'
 title: 'My Thesis Name'
@@ -15,10 +15,10 @@ logo: 'forms/UNSWcrest'
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: 
-  thesisdown::thesis_pdf: default
-  thesisdown::thesis_gitbook: default
-#  thesisdown::thesis_word: default
-#  thesisdown::thesis_epub: default
+  unswthesisdown::thesis_pdf: default
+  unswthesisdown::thesis_gitbook: default
+#  unswthesisdown::thesis_word: default
+#  unswthesisdown::thesis_epub: default
 
 # abstract and other preliminary content. comment out if you don't want it!
 abstract: |
@@ -57,14 +57,14 @@ If you receive a duplicate label error after knitting, make sure to delete the i
 -->
 
 ```{r include_packages, include = FALSE}
-# This chunk ensures that the thesisdown package is
-# installed and loaded. This thesisdown package includes
+# This chunk ensures that the unswthesisdown package is
+# installed and loaded. This unswthesisdown package includes
 # the template files for the thesis.
 if(!require(devtools))
   install.packages("devtools", repos = "http://cran.rstudio.com")
-if(!require(thesisdown))
-  devtools::install_github("ismayc/thesisdown")
-library(thesisdown)
+if(!require(unswthesisdown))
+  devtools::install_github("rensa/unswthesisdown")
+library(unswthesisdown)
 ```
 
 <!-- You'll need to include the order that you'd like Rmd files to appear in the _bookdown.yml file for
