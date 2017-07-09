@@ -10,6 +10,8 @@ degree: 'Doctor of Philosophy'
 title: 'My Thesis Name'
 logo: 'forms/UNSWcrest'
 
+# output options. use gitbook while you're writing; switch to pdf when you're
+# ready to make it look pretty. word and epub aren't great atm.
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: 
@@ -17,14 +19,13 @@ output:
   thesisdown::thesis_gitbook: default
 #  thesisdown::thesis_word: default
 #  thesisdown::thesis_epub: default
-# If you are creating a PDF you'll need to write your preliminary content here or
-# use code similar to line 20 for the files.  If you are producing in a different
-# format than PDF, you can delete or ignore lines 20-31 in this YAML header.
+
+# abstract and other preliminary content. comment out if you don't want it!
 abstract: |
   `r if(knitr:::is_latex_output()) paste(readLines("00-abstract.Rmd"), collapse = '\n  ')`
-# If you'd rather include the preliminary content in files instead of inline
-# like below, use a command like that for the abstract above.  Note that a tab is 
-# needed on the line after the |.
+# If you'd rather include the preliminary content in a file instead of here,
+# use a command like that for the abstract above.  Note that a tab is needed on
+# the line after the |.
 acknowledgements: |
   I want to thank a few people.
 dedication: |
@@ -32,16 +33,17 @@ dedication: |
 preface: |
   This is an example of a thesis setup to use the reed thesis document class
   (for LaTeX) and the R bookdown package, in general.
-bibliography: bib/thesis.bib
-# Download your specific bibliography database file and refer to it in the line above.
-csl: csl/apa.csl
-link-citations: true
-# Download your specific csl file and refer to it in the line above.
-lot: true
+
+
+bibliography: bib/thesis.bib # bib file (or files, in an [array])
+csl: csl/apa.csl  # citation style file
+link-citations: true # hyperlinks between citations and reference list
+lot: true # lists of tables and figures after the toc
 lof: true
+
 #space_between_paragraphs: true
-# Delete the # at the beginning of the previous line if you'd like
-# to have a blank new line between each paragraph
+
+# uncomment this to add more latex packages
 #header-includes:
 #- \usepackage{tikz}
 ---
@@ -49,13 +51,9 @@ lof: true
 <!--
 Above is the YAML (YAML Ain't Markup Language) header that includes a lot of metadata used to produce the document.  Be careful with spacing in this header!
 
-If you'd prefer to not include a Dedication, for example, simply delete lines 17 and 18 above or add a # before them to comment them out.  If you have other LaTeX packages you would like to include, delete the # before header-includes and list the packages after hyphens on new lines.
-
 If you'd like to include a comment that won't be produced in your resulting file enclose it in a block like this.
--->
 
-<!--
-If you receive a duplicate label error after knitting, make sure to delete the index.Rmd file and then knit again.
+If you receive a duplicate label error after knitting, make sure to delete the index.Rmd file and then knit again
 -->
 
 ```{r include_packages, include = FALSE}
