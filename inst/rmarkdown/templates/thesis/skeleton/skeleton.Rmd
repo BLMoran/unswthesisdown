@@ -69,6 +69,7 @@ library(unswthesisdown)
 # set default options for code chunks. these options are good for if
 # you mostly use chunks for figures and tables, but experiment with them
 # (and remember you can override them in each chunk!)
+# refer to https://yihui.name/knitr/options/ for more options
 opts_chunk$set(echo = FALSE, out.width = "85%", fig.align = "center")
 ```
 
